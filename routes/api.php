@@ -11,8 +11,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::prefix('v1/')->group(function () {
-    Route::get('buses',  [BusController::class,    'index']);
+    Route::get('buses',            [BusController::class,    'index']);
     Route::post('ticket/validate', [TicketController::class, 'validateCode']);
-    Route::post('ticket/mark', [TicketController::class, 'markTicket']);
-    Route::post('login', [UserController::class, 'markTicket']);
+    Route::post('ticket/mark',     [TicketController::class, 'markTicket']);
+    Route::post('login',           [UserController::class, 'doLogin']);
 });
