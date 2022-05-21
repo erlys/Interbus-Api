@@ -18,6 +18,28 @@ class BusFactory extends Factory
     public function definition()
     {
         $seats = [20, 28, 32, 40, 48];
+        $busesName = [
+            "ALSA",
+            "Avanza",
+            "Socibus",
+            "Damas",
+            "Hife",
+            "Vibasa",
+            "Daibus",
+            "Aisa",
+            "La Unión",
+            "La Sepulvedana",
+            "Conda",
+            "Aerobús Barcelona",
+            "Saiz Tour",
+            "Subus",
+            "Therpasa",
+            "Agreda Autobuses",
+            "Jiménez Dorado",
+            "La Burundesa",
+            "Lycar",
+        ];
+
         $images = [
             asset('img/buses/bus1.jpg'),
             asset('img/buses/bus2.jpg'),
@@ -35,7 +57,7 @@ class BusFactory extends Factory
         return [
             'agency_id' => random_int(1, 10),
             'user_id' => random_int(1, 25),
-            'name' => $this->faker->word(),            
+            'name' => $busesName[random_int(0, count($busesName) - 1)],
             'model' => $this->faker->word(),            
             'image' => $images[random_int(0, count($images) - 1)],
             'seats' => $seats[random_int(0, count($seats) - 1)]
