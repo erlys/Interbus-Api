@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('bus_id');
             $table->string('departure_from');
-            $table->datetime('departure_date');            
+            $table->string('departure_date');            
             $table->string('arrive_to');            
-            $table->datetime('arrive_date');            
+            $table->string('arrive_date');            
             $table->timestamps();
 
             $table->foreign('bus_id')->references('id')->on('buses')->onDelete('cascade');

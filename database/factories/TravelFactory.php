@@ -709,14 +709,20 @@ class TravelFactory extends Factory
      * @return array<string, mixed>
      */
     public function definition()
-    {        
-        
+    {
+        $travelDate = $this->faker->dateTimeBetween('+ 1 days', '+ 2 days');
+        $stringDate = $travelDate->format('d/m/Y');
+        $minutes = [15, 20, 30, 45];
+        $starHour = random_int(0, 20);
+        $endHour = $starHour + random_int(1, 3);
+        $startMinute = $minutes[random_int(0, count($minutes) - 1)];
+        $endMinute = $minutes[random_int(0, count($minutes) - 1)];
         return [
             "bus_id" => random_int(1,25),
             "departure_from" => $this->destinations[random_int(0, count($this->destinations)-1)],
-            "departure_date" => $this->faker->dateTimeBetween('now', '+ 1 days'),
+            "departure_date" => $stringDate . " " . $starHour . ":" . $startMinute,
             "arrive_to" => $this->destinations[random_int(0, count($this->destinations)-1)],
-            "arrive_date" => $this->faker->dateTimeBetween('+ 1 days', '+ 2 days'),
+            "arrive_date" => $stringDate . " " . $endHour . ":" . $endMinute,
         ];            
     }
 }
