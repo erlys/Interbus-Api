@@ -57,7 +57,7 @@ class BusFactory extends Factory
         return [
             'agency_id' => random_int(1, 10),
             'user_id' => random_int(1, 25),
-            'name' => $busesName[random_int(0, count($busesName) - 1)],
+            'name' => $busesName[random_int(0, count($busesName) - 1)] . " " . random_int(10, 99),
             'model' => $this->faker->word(),            
             'image' => $images[random_int(0, count($images) - 1)],
             'seats' => $seats[random_int(0, count($seats) - 1)]
